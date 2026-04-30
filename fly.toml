@@ -1,22 +1,15 @@
-# fly.toml app configuration file generated for btc-bot-late-silence-5273 on 2026-04-30T22:24:06+03:00
-#
-# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
-#
-
-app = 'btc-bot-late-silence-5273'
-primary_region = 'cdg'
+app = "btc-bot-late-silence-5273"
+primary_region = "cdg"
 
 [build]
+dockerfile = "Dockerfile"
 
-[http_service]
-  internal_port = 8080
-  force_https = true
-  auto_stop_machines = 'stop'
-  auto_start_machines = true
-  min_machines_running = 0
-  processes = ['app']
+[experimental]
+  auto_rollback = true
 
 [[vm]]
-  memory = '256mb'
+  memory = "256mb"
   cpus = 1
-  memory_mb = 256
+
+[processes]
+  app = "python bot.py"

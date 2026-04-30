@@ -51,11 +51,8 @@ def main():
         try:
             time.sleep(60)
         except KeyboardInterrupt:
-            print("Shutting down cleanly")
-            break
-
-        except KeyboardInterrupt:
             print("Bot stopped gracefully (SIGINT received)")
+            break
 
 if __name__ == "__main__":
     main()
