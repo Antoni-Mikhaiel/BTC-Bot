@@ -4,12 +4,12 @@ primary_region = "cdg"
 [build]
 dockerfile = "Dockerfile"
 
-[experimental]
-  auto_rollback = true
+[processes]
+  app = "python bot.py"
+
+[restart]
+  policy = "no"
 
 [[vm]]
   memory = "256mb"
   cpus = 1
-
-[processes]
-  app = "python bot.py"
