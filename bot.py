@@ -48,7 +48,14 @@ def main():
         except Exception as e:
             print("Error:", e)
 
-        time.sleep(60)
+        try:
+            time.sleep(60)
+        except KeyboardInterrupt:
+            print("Shutting down cleanly")
+            break
+
+        except KeyboardInterrupt:
+            print("Bot stopped gracefully (SIGINT received)")
 
 if __name__ == "__main__":
     main()
